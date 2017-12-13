@@ -5,7 +5,9 @@ from io import parsefile, printfile
 
 
 def applyRules(note, previous):
-    pass
+    options = [3, 4, 7, 8, 9, 12]  # all intervals allowed in counterpoint
+    prev_int = previous[1] - previous[0]
+
 
 
 def main(infile, fpath, sp):
@@ -13,9 +15,6 @@ def main(infile, fpath, sp):
     # print(header)
     # print(footer)
     # print(notes_on)
-
-    printfile(fpath, notes_on, notes_off, header, footer)
-    return
 
     new_notes_on = []
     new_notes_off = []
