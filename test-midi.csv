@@ -1,0 +1,30 @@
+0, 0, Header, 1, 2, 15360
+1, 0, Start_track
+1, 0, Title_t, "Transport"
+1, 0, Instrument_name_t, "Hardware Interface II"
+1, 0, MIDI_port, 0
+1, 0, Tempo, 500000
+1, 0, Time_signature, 4, 2, 24, 8
+1, 6144000, End_track
+2, 0, Start_track
+2, 0, Title_t, "NN-XT 1"
+2, 0, Instrument_name_t, "NN-XT 1"
+2, 0, MIDI_port, 2
+2, 0, Note_on_c, 0, 60, 100
+2, 61440, Note_off_c, 0, 60, 0
+2, 61440, Note_on_c, 0, 64, 100
+2, 122880, Note_off_c, 0, 64, 0
+2, 122880, Note_on_c, 0, 62, 100
+2, 184320, Note_off_c, 0, 62, 0
+2, 184320, Note_on_c, 0, 67, 100
+2, 245760, Note_off_c, 0, 67, 0
+2, 245760, Note_on_c, 0, 65, 100
+2, 307200, Note_off_c, 0, 65, 0
+2, 307200, Note_on_c, 0, 59, 100
+2, 368640, Note_off_c, 0, 59, 0
+2, 368640, Note_on_c, 0, 62, 100
+2, 430080, Note_off_c, 0, 62, 0
+2, 430080, Note_on_c, 0, 64, 100
+2, 491520, Note_off_c, 0, 64, 0
+2, 6144000, End_track
+0, 0, End_of_file
