@@ -30,7 +30,7 @@ def parsefile(f):
 
 
 def printfile(fpath, new_notes_on, new_notes_off, header, footer, species):
-    nfp = fpath.split(".")[0] + "_counterpoint.csv"
+    nfp = fpath.split(".")[1].split("/")[2] + "_counterpoint.csv"
     f = open(nfp, "w")
     f.write(header)
 
