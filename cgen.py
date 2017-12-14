@@ -6,9 +6,30 @@ from io import parsefile, printfile
 
 def applyRules(note, previous):
     options = [3, 4, 7, 8, 9, 12]  # all intervals allowed in counterpoint
-    prev_int = previous[1] - previous[0]
+    if previous is None:
+        options = [7, 12]
+    else:
+        prev_int = previous[1] - previous[0]
+        print(prev_int)
+        print(options)
+        if prev_int == 3 or prev_int == 4:  # no consecutive thirds
+            options.remove(3)
+            options.remove(4)
+        elif prev_int == 8 or prev_int == 9:  # no consecutive sixths
+            options.remove(8)
+            options.remove(9)
+        else:
+            options.remove(prev_int)  # no consecutive 5ths or octaves
 
+        # if we would approach 5th by parallel motion
+        if (note + 7) - previous[1] > 0 and (note - previous[0]) > 0:
+            if 7 in options:
+                options.remove(7)
+        elif (note + 7) - previous[1] < 0 and (note - previous[0]) < 0:
+            if 7 in options:
+                options.remove(7)
 
+    return options
 
 def main(infile, fpath, sp):
     header, footer, notes_on, notes_off = parsefile(infile)
@@ -18,12 +39,12 @@ def main(infile, fpath, sp):
 
     new_notes_on = []
     new_notes_off = []
-    previous = []
+    previous = None
     for idx in range(0, len(notes_on)):
         pitch = notes_on[idx][1]
         options = applyRules(pitch, previous)  # pick new pitch
-        r = random.randint(0, len(options))
-        new_pitch = options[r]
+        r = random.randint(0, len(options) - 1)
+        new_pitch = options[r] + pitch
         previous = [pitch, new_pitch]
 
         new_on = [notes_on[idx][0], new_pitch]  # turn the note on with the original note

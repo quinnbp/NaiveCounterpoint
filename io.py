@@ -33,13 +33,25 @@ def printfile(fpath, new_notes_on, new_notes_off, header, footer):
     nfp = fpath.split(".")[0] + "_counterpoint.csv"
     f = open(nfp, "w")
     f.write(header)
-    for idx in range(0, len(new_notes_on)):
+    idx = 0
+    while idx < len(new_notes_on):
         on = new_notes_on[idx]
         note_on_line = "2, " + str(on[0]) + ", Note_on_c, 0, " + str(on[1]) + ", 100\n"
+
+        on2 = new_notes_on[idx+1]
+        note_on_line2 = "2, " + str(on2[0]) + ", Note_on_c, 0, " + str(on2[1]) + ", 100\n"
+
         off = new_notes_off[idx]
         note_off_line = "2, " + str(off[0]) + ", Note_off_c, 0, " + str(off[1]) + ", 0\n"
 
+        off = new_notes_off[idx+1]
+        note_off_line2 = "2, " + str(off[0]) + ", Note_off_c, 0, " + str(off[1]) + ", 0\n"
+
         f.write(note_on_line)
+        f.write(note_on_line2)
         f.write(note_off_line)
+        f.write(note_off_line2)
+
+        idx += 2
 
     f.write(footer)
