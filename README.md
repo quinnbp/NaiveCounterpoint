@@ -22,7 +22,9 @@ counterpoint, as specified.
 ### Sample command
 
 midicsv test.mid
+
 python cgen.py test.csv
+
 csvmidi test_counterpoint.csv
 
 
