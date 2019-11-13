@@ -1,4 +1,4 @@
-# CMUS130
+# Naive Counterpoint Generator
 
 A first and second species counterpoint generator. Requires midicsv. 
 
